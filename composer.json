@@ -51,6 +51,7 @@
 				"autoload": {
 					"psr-0": { "WP_Mock": "./" },
 					"files": [
+						"WP_Mock.php",
 						"WP_Mock/API/constant-mocks.php",
 						"WP_Mock/API/taxonomy-mocks.php",
 						"WP_Mock/API/template-mocks.php",
