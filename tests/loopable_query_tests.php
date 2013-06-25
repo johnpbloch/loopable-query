@@ -33,7 +33,9 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 		$property->setAccessible( true );
 
 		$this->assertSame( $query, $property->getValue( $object ), 'Loopable_Query did not correctly set the query object!' );
-		$this->assertNull( $property->getValue( new Loopable_Query ), 'Loopable_Query did not set the _query property to null when no query was provided!' );
+
+		$GLOBALS['wp_query'] = $global_query = Mockery::mock( 'WP_Query' );
+		$this->assertSame( $global_query, $property->getValue( new Loopable_Query ), 'Loopable_Query did not set the _query property to the global query object when no query was provided!' );
 	}
 
 	public function test_count_uses_post_count() {
