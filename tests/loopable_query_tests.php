@@ -48,5 +48,19 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertSame( $expected_count, count( $object ), 'count() method did not return the correct number!' );
 	}
 
+	public function test_rewind() {
+		$query              = Mockery::mock( 'WP_Query' );
+		$query->in_the_loop = true;
+		$query->shouldReceive( 'rewind_posts' )->once();
+		WP_Mock::wpFunction( 'wp_reset_postdata', array(
+			'times' => 1
+		) );
+
+		$object = new Loopable_Query( $query );
+		$object->rewind();
+
+		$this->assertFalse( $query->in_the_loop );
+	}
+
 }
 
