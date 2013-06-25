@@ -1,0 +1,18 @@
+{
+    "name": "johnpbloch/loopable-query",
+    "description": "A loopable object for all your WP_Query needs",
+    "license": "GPLv2 or higher",
+    "authors": [
+        {
+            "name": "John P. Bloch",
+            "email": "john.bloch@10up.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7"
+    }
+}
