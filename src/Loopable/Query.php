@@ -72,7 +72,9 @@ class Loopable_Query implements Countable, Iterator {
 	 * @return void Any returned value is ignored.
 	 */
 	public function rewind() {
-		// TODO: Implement rewind() method.
+		wp_reset_postdata();
+		$this->_query->rewind_posts();
+		$this->_query->in_the_loop = false;
 	}
 
 }
