@@ -1,7 +1,7 @@
 {
 	"name": "johnpbloch/loopable-query",
 	"description": "A loopable object for all your WP_Query needs",
-	"license": "GPLv2 or higher",
+	"license": "GPL-2.0+",
 	"authors": [
 		{
 			"name": "John P. Bloch",
