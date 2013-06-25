@@ -1,0 +1,4 @@
+<phpunit
+	colors="1"
+	bootstrap="./autoload.php">
+</phpunit>
