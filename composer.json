@@ -19,6 +19,9 @@
 		"mockery/mockery"  : "dev-master@dev",
 		"hamcrest/hamcrest": "1.1.0"
 	},
+	"autoload": {
+		"psr-0": { "Loopable_Query": "src/" }
+	},
 	"repositories": [
 		{
 			"type"   : "package",
