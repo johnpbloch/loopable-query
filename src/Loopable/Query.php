@@ -8,7 +8,7 @@ class Loopable_Query implements Countable, Iterator {
 	protected $_query;
 
 	public function __construct( WP_Query $query = null ) {
-		$this->_query = $query;
+		$this->_query = $query ? $query : $GLOBALS['wp_query'];
 	}
 
 	/**
