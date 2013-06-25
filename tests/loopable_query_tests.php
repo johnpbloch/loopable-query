@@ -39,7 +39,13 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 	}
 
 	public function test_count_uses_post_count() {
-		$this->markTestIncomplete();
+		$query             = Mockery::mock( 'WP_Query' );
+		$query->post_count = $expected_count = rand( 0, 10000 );
+
+		$object = new Loopable_Query( $query );
+
+		$this->assertSame( $expected_count, $object->count(), 'count() method did not return the correct number!' );
+		$this->assertSame( $expected_count, count( $object ), 'count() method did not return the correct number!' );
 	}
 
 }
