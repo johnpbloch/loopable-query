@@ -36,5 +36,9 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertNull( $property->getValue( new Loopable_Query ), 'Loopable_Query did not set the _query property to null when no query was provided!' );
 	}
 
+	public function test_count_uses_post_count() {
+		$this->markTestIncomplete();
+	}
+
 }
 
