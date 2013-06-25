@@ -3,6 +3,15 @@
 class Loopable_Query implements Countable, Iterator {
 
 	/**
+	 * @var WP_Query
+	 */
+	protected $_query;
+
+	public function __construct( WP_Query $query = null ) {
+		$this->_query = $query;
+	}
+
+	/**
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Count elements of an object
 	 * @link http://php.net/manual/en/countable.count.php
