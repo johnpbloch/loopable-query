@@ -98,5 +98,13 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertFalse( $object->valid(), 'valid() did not return true when have_posts() did!' );
 	}
 
+	public function test_next() {
+		$query = Mockery::mock( 'WP_Query' );
+		$query->shouldReceive( 'the_post' )->once();
+
+		$object = new Loopable_Query( $query );
+		$object->next();
+	}
+
 }
 
