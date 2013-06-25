@@ -62,7 +62,9 @@ class Loopable_Query implements Countable, Iterator {
 	 *       Returns true on success or false on failure.
 	 */
 	public function valid() {
-		// TODO: Implement valid() method.
+		$this->_query->have_posts();
+		$this->_query->the_post();
+		return true;
 	}
 
 	/**
