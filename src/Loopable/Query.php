@@ -21,7 +21,7 @@ class Loopable_Query implements Countable, Iterator {
 	 *       The return value is cast to an integer.
 	 */
 	public function count() {
-		// TODO: Implement count() method.
+		return (int) $this->_query->post_count;
 	}
 
 	/**
