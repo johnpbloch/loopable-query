@@ -20,7 +20,9 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 	}
 
 	public function test_object_implements_interfaces() {
-		$this->markTestIncomplete();
+		$object = new Loopable_Query();
+		$this->assertInstanceOf( 'Countable', $object, 'Loopable_Query does not implement the Countable interface!' );
+		$this->assertInstanceOf( 'Iterator', $object, 'Loopable_Query does not implement the Iterator interface!' );
 	}
 
 }
