@@ -41,7 +41,9 @@ class Loopable_Query implements Countable, Iterator {
 	 * @return void Any returned value is ignored.
 	 */
 	public function next() {
-		$this->_query->the_post();
+		if ( $this->_query->current_post + 1 < $this->_query->post_count ) {
+			$this->_query->the_post();
+		}
 	}
 
 	/**
