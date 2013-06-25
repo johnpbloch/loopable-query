@@ -63,7 +63,9 @@ class Loopable_Query implements Countable, Iterator {
 	 */
 	public function valid() {
 		$this->_query->have_posts();
-		$this->_query->the_post();
+		if ( ! $this->_query->in_the_loop ) {
+			$this->_query->the_post();
+		}
 		return true;
 	}
 
