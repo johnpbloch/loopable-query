@@ -62,11 +62,15 @@ class Loopable_Query implements Countable, Iterator {
 	 *       Returns true on success or false on failure.
 	 */
 	public function valid() {
-		$this->_query->have_posts();
-		if ( ! $this->_query->in_the_loop ) {
-			$this->_query->the_post();
+		if ( $this->_query->have_posts() ) {
+			if ( ! $this->_query->in_the_loop ) {
+				$this->_query->the_post();
+			}
+			return true;
 		}
-		return true;
+		$this->_query->rewind_posts();
+		wp_reset_postdata();
+		return false;
 	}
 
 	/**
