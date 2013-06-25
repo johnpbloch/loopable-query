@@ -101,6 +101,8 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 	public function test_next() {
 		$query = Mockery::mock( 'WP_Query' );
 		$query->shouldReceive( 'the_post' )->once();
+		$query->post_count   = rand( 5, 10 );
+		$query->current_post = $query->post_count - 2;
 
 		$object = new Loopable_Query( $query );
 		$object->next();
