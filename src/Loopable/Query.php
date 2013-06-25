@@ -41,7 +41,7 @@ class Loopable_Query implements Countable, Iterator {
 	 * @return void Any returned value is ignored.
 	 */
 	public function next() {
-		// TODO: Implement next() method.
+		$this->_query->the_post();
 	}
 
 	/**
