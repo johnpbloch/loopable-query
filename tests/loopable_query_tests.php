@@ -62,5 +62,41 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertFalse( $query->in_the_loop );
 	}
 
+	public function test_valid_not_in_loop() {
+		$query              = Mockery::mock( 'WP_Query' );
+		$query->in_the_loop = false;
+		$query->shouldReceive( 'have_posts' )->once()->andReturn( true );
+		$query->shouldReceive( 'rewind_posts' )->never();
+		$query->shouldReceive( 'the_post' )->once();
+		WP_Mock::wpFunction( 'wp_reset_postdata', array( 'times' => 0 ) );
+
+		$object = new Loopable_Query( $query );
+		$this->assertTrue( $object->valid(), 'valid() did not return true when have_posts() did!' );
+	}
+
+	public function test_valid_already_in_loop() {
+		$query              = Mockery::mock( 'WP_Query' );
+		$query->in_the_loop = true;
+		$query->shouldReceive( 'have_posts' )->once()->andReturn( true );
+		$query->shouldReceive( 'rewind_posts' )->never();
+		$query->shouldReceive( 'the_post' )->never();
+		WP_Mock::wpFunction( 'wp_reset_postdata', array( 'times' => 0 ) );
+
+		$object = new Loopable_Query( $query );
+		$this->assertTrue( $object->valid(), 'valid() did not return true when have_posts() did!' );
+	}
+
+	public function test_not_valid() {
+		$query              = Mockery::mock( 'WP_Query' );
+		$query->in_the_loop = true;
+		$query->shouldReceive( 'have_posts' )->once()->andReturn( false );
+		$query->shouldReceive( 'rewind_posts' )->once();
+		$query->shouldReceive( 'the_post' )->never();
+		WP_Mock::wpFunction( 'wp_reset_postdata', array( 'times' => 1 ) );
+
+		$object = new Loopable_Query( $query );
+		$this->assertFalse( $object->valid(), 'valid() did not return true when have_posts() did!' );
+	}
+
 }
 
