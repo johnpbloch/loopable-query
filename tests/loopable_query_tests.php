@@ -125,5 +125,13 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( $expected_key, $object->key() );
 	}
 
+	public function test_current() {
+		$query             = Mockery::mock( 'WP_Query' );
+		$query->post       = $expected_post = Mockery::mock( 'WP_Post' );
+		$expected_post->ID = rand( 1, 10000 );
+		$object            = new Loopable_Query( $query );
+		$this->assertSame( $expected_post, $object->current() );
+	}
+
 }
 
