@@ -53,7 +53,7 @@ class Loopable_Query implements Countable, Iterator {
 	 * @return mixed scalar on success, or null on failure.
 	 */
 	public function key() {
-		// TODO: Implement key() method.
+		return $this->_query->current_post;
 	}
 
 	/**
