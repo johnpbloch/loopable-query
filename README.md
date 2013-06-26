@@ -11,7 +11,7 @@ $featured_posts = new Loopable_Query( new WP_Query( array(
 foreach( $featured_posts as $feature ) {
 	echo '<p><a href="' . get_permalink() . '">';
 	the_title();
-	echo '</a></p>'
+	echo '</a></p>';
 }
 ```
 
@@ -46,3 +46,4 @@ vendor/bin/phpunit
 ### License
 
 Loopable Query is licensed under the GPL version 2 or later.
+
