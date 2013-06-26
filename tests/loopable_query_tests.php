@@ -118,5 +118,12 @@ class Loopable_Query_Tests extends PHPUnit_Framework_TestCase {
 		$object->next();
 	}
 
+	public function test_key() {
+		$query               = Mockery::mock( 'WP_Query' );
+		$query->current_post = $expected_key = rand( 1, 1000 );
+		$object              = new Loopable_Query( $query );
+		$this->assertEquals( $expected_key, $object->key() );
+	}
+
 }
 
