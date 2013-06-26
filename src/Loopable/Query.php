@@ -31,7 +31,7 @@ class Loopable_Query implements Countable, Iterator {
 	 * @return mixed Can return any type.
 	 */
 	public function current() {
-		// TODO: Implement current() method.
+		return $this->_query->post;
 	}
 
 	/**
