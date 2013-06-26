@@ -36,7 +36,7 @@ Use [Composer](http://getcomposer.org) to add Loopable Query to your project.
 
 ### Contributing
 
-Pull requests are welcome. Loopable Query has unit tests. To run them, clone the repository, install composer, and run the following commands:
+Pull requests are welcome. Loopable Query has unit tests. To run them, clone the repository, [install composer](http://getcomposer.org/doc/00-intro.md), and run the following commands:
 
 ```
 composer install --dev
